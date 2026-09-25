@@ -1,0 +1,188 @@
+{
+  "info": {
+    "_postman_id": "7c78d4a8-3484-4d73-8520-23bd0227d7ec",
+    "name": "Pizzas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57775763",
+    "_collection_link": "https://go.postman.co/collection/57775763-7c78d4a8-3484-4d73-8520-23bd0227d7ec?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Pizza",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\nconst response = pm.response.json();\r\nconst idGenerado = response.id || response._id;\r\npm.collectionVariables.set(\"pizzaId\", String(idGenerado));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 2,\r\n  \"nombre\": \"Peperoni\",\r\n  \"descripcion\": \"Queso y Peperoni\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/pizzas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pizzas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pizzas",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/pizzas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pizzas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pizza",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/pizzas/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pizzas",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pizza",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Mexicana\",\r\n    \"descripcion\": \"Jalapeno y chorizo\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/pizzas/{{pizzaId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pizzas",
+            "{{pizzaId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pizza",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/pizzas/{{pizzaId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "pizzas",
+            "{{pizzaId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "pizzaId",
+      "value": ""
+    }
+  ]
+}
